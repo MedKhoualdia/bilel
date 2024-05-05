@@ -1,0 +1,78 @@
+<div class="messenger-container">
+  <h2>Private Chat</h2>
+
+  <div class="container">
+    <!-- Online Users Section -->
+    <div class="online-users">
+      <h3>Online Users</h3>
+      <div *ngFor="let user of onlineUsers" class="user">
+        <div class="button-container">
+          <button class="button-send" (click)="selectUser(user)" [ngClass]="{'selected': user === selectedUser}" title="Select user" aria-label="Select user">
+            <span>{{ user }}</span>
+            <span class="status"></span>
+          </button>
+
+          <button (click)="sendFriendRequest(user)" class="friend-request-btn" title="Send friend request" *ngIf="!friendsEmails.includes(user)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chat-section">
+      <div class="card">
+        <div class="card-body message-container" #conversationArea>
+
+          <div *ngIf="selectedUser">
+            <div class="chat-actions">
+              <!-- Block button -->
+              <button (click)="blockUser(selectedUser)" *ngIf="!isBlockedByUser" class="block-btn" title="Block user" aria-label="Block user">
+                <i class="fas fa-lock"></i> Block
+              </button>
+
+              <!-- Unblock button -->
+              <button (click)="unblockUser(selectedUser)" *ngIf="isBlockedByUser" class="unblock-btn" title="Unblock user" aria-label="Unblock user">
+                <i class="fas fa-unlock-alt"></i> Unblock
+              </button>
+            </div>
+            <h3>Chatting with {{ selectedUser }}</h3>
+
+
+            <!-- Chat messages -->
+            <div *ngFor="let msg of displayMessages()" class="message" [ngClass]="{'sent': msg.senderName === userProfile.email, 'received': msg.senderName !== userProfile.email}">
+              <!-- Message metadata -->
+              <div class="meta-data">
+                <div class="sender">{{ msg.senderName }}</div>
+                <div class="timestamp">{{ msg.date | date: 'MMM d, yyyy, h:mm a' }}</div>
+              </div>
+
+
+
+              <div class="content">{{ msg.message }} </div>
+              <div class="message-actions">
+                <button class="action-btn" (click)="openModal(msg)" aria-label="Actions" title="Actions">⋮</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div *ngIf="!selectedUser">
+            <p>Select a user to start chatting.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <input type="text" [(ngModel)]="newMessage" placeholder="Type your message" (keyup.enter)="sendMessage()" />
+        <button class="button-send" (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="modalVisible">
+    <div class="modal-content">
+      <button (click)="reportMessage(selectedMessage)" *ngIf="selectedMessage?.senderName !== userProfile.email">Report</button>
+      <button (click)="deleteMessage(selectedMessage)" *ngIf="selectedMessage?.senderName === userProfile.email">Delete</button>
+      <button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>

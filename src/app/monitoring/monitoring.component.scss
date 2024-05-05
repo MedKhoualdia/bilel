@@ -1,0 +1,29 @@
+.chart-container {
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  width: 90%; /* Use the full width of the tab */
+  height: 450px; /* Set a fixed height for chart containers */
+  border: 1px solid #ccc; /* Optional: add a border */
+  border-radius: 10px; /* Optional: add rounded corners */
+  margin: 40px; /* Optional: add margin around the container */
+  padding: 10px; /* Optional: add padding inside the container */
+  background-color: #f9f9f9; /* Optional: set a light background color */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: add shadow for depth */
+}
+
+/* Optional: Add styling for the button */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #3366ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #1f52d4;
+}

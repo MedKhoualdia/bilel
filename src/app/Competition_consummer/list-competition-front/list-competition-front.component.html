@@ -1,0 +1,30 @@
+<!-- Students section start -->
+<div class="">
+  <div class="container-fluid">
+    <div class="classes_section ">
+      <h1 class="classes_text">List competitions</h1>
+      <div class="dance_main col-sm-12 d-flex justify-content-center mt-8 py-5">
+        <div class="row">
+          <div class="col-sm-4" *ngFor="let c of listCompetition | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index ">
+            <!--   modifie par med -->
+            <div class="card mb-4"> <!-- Added mb-4 to add margin between cards -->
+              <img class="card-img-top" src="assets/bilel/cmp.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ c.name }}</h5>
+                <p class="card-text">Date of creation: {{ c.date }}</p>
+                <a class="btn btn-primary" [routerLink]="['/DanceScape/detailCompetition', c.competitionId]">Details</a>
+              </div>
+            </div>
+            <!--   modifie par med -->
+            <!-- Break to next row after every third competition -->
+            <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 d-flex justify-content-center mt-8 py-5">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Students section end -->

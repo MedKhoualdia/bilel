@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="row">
+      <!-- Update the image with a more relatable one -->
+      <div class="col-lg-5 d-none d-lg-block bg-register-image" style="background-image: url('https://static.vecteezy.com/system/resources/previews/008/601/858/original/business-competition-flat-illustration-design-free-vector.jpg');" alt="Related to competition context"></div>
+      <div class="col-lg-7">
+        <div class="p-5">
+          <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Create New Competition</h1>
+          </div>
+          <form [formGroup]="registerForm" class="user" (ngSubmit)="save()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input formControlName="name" type="text" class="form-control form-control-user" id="name" placeholder="Name">
+              <div class="alert alert-danger mt-1" *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched">
+                <p *ngIf="registerForm.get('name')?.hasError('required')">Name is required</p>
+                <p *ngIf="registerForm.get('name')?.hasError('minlength')">Name must be at least 5 characters long</p>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="date">Date of Competition</label>
+                <div class="input-group">
+                  <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Select date" class="form-control form-control-user" id="date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </div>
+                <div class="alert alert-danger mt-1" *ngIf="registerForm.controls['date'].invalid && registerForm.controls['date'].touched">
+                  <p *ngIf="registerForm.get('date')?.hasError('required')">Date is required</p>
+                  <p *ngIf="registerForm.get('date')?.hasError('date_range')">Date must be today or later</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="expirationDate">Expiration Date</label>
+                <div class="input-group">
+                  <input formControlName="expirationDate" matInput [matDatepicker]="expiryPicker" placeholder="Select expiration date" class="form-control form-control-user" id="expirationDate">
+                  <mat-datepicker-toggle matSuffix [for]="expiryPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #expiryPicker></mat-datepicker>
+                </div>
+                <div class="alert alert-danger mt-1" *ngIf="registerForm.controls['expirationDate'].invalid && registerForm.controls['expirationDate'].touched">
+                  <p *ngIf="registerForm.get('expirationDate')?.hasError('required')">Expiration date is required</p>
+                  <p *ngIf="registerForm.get('expirationDate')?.hasError('date_range')">Expiration date must be today or later</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="rules">Rules</label>
+              <input formControlName="rules" type="text" class="form-control form-control-user" id="rules" placeholder="Rules">
+              <div class="alert alert-danger mt-1" *ngIf="registerForm.controls['rules'].invalid && registerForm.controls['rules'].touched">
+                <p *ngIf="registerForm.get('rules')?.hasError('required')">Rules are required</p>
+                <p *ngIf="registerForm.get('rules')?.hasError('minlength')">Rules must be at least 5 characters long</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div *ngIf="successMessage" class="alert alert-success mt-2">{{successMessage}}</div>
+              <div *ngIf="errorMessage" class="alert alert-danger mt-2">{{errorMessage}}</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="registerForm.invalid || isSubmitting">
+              Add Competition
+            </button>
+            <hr>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+#jitsi-iframe-container {
+  /* Set the width and height of the live stream container */
+  width: 100%; /* Set the width to 95% of the container's parent */
+  max-width: 3000px; /* Set a maximum width to ensure it doesn't get too wide */
+  height: 150vh; /* Set the height to 95% of the viewport height */
+  margin: 0 auto; /* Center the container horizontally */
+  background-color: black; /* Optional: Set a background color */
+  z-index: 9999; /* Ensure the container is on top of other elements */
+}
+
+#jitsi-iframe {
+  width: 100%; /* Take up the full width of the container */
+  height: 100%; /* Take up the full height of the container */
+}

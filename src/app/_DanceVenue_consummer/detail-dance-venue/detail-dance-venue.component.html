@@ -1,0 +1,17 @@
+<!-- detail-dance-venue.component.html -->
+<div *ngIf="c" class="card shadow mb-4">
+  <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">{{c.name}} Dance Venue</h6>
+  </div>
+  <div class="card-body">
+      <div class="text-center">
+          <!-- Fix the image path -->
+          <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+              [src]="'/assets/Back-office/img/undraw_posting_photo.svg'" alt="...">
+      </div>
+      <!-- Ensure c is populated and then display the data -->
+      <p *ngIf="c">This dance venue: "{{c.name}}" contains {{c.numberOfSeat}} seats. <a
+              target="_blank" rel="nofollow" href="https://undraw.co/">{{c.name}}</a></p>
+      <a *ngIf="c" target="_blank" rel="nofollow" href="https://undraw.co/">{{c.name}} &rarr;</a>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+
+<div class="shortcode_section layout_padding">
+  <div class="container">
+    <div>
+    <label for="select-language">Choose language</label>
+    <select name="select-language" (change)="translate()" id='select-language'>
+    <option value="en">English</option>
+    <option value="fr">French</option>
+    <option value="de">German</option>
+    <option value="es">Spanich</option>
+    </select>
+
+
+  </div>
+    <h1 class="ballet_text">Competition : {{ c.name }}</h1>
+    <p class="amet_text" style="font-size: larger; font-family: 'Courier New', Courier, monospace; color: midnightblue;">Date Of Creation : {{ c.date }}</p>
+    <p class="amet_text" style="font-family: 'Courier New', Courier, monospace; font-size: larger; color: midnightblue;">Expiration Date : {{ c.expirationDate }}</p>
+    <div class="shortcode_section_2">
+      <div class="shortcode_left">
+        <h1 class="heading_text">Rules</h1>
+        <p class="tempor_text">{{ c.rules }}</p>
+      </div>
+      <div class="shortcode_right"><img src="/assets/Front-office/images/img-3.png"></div>
+    </div>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+
+
+    <div class="button-container">
+      <div class="click_bt"><a href="/DanceScape/join">Join Competition</a></div>
+    </div>
+    <div>
+      <div class="click_bt"><a href="/DanceScape/payment">Buy a ticket</a></div>
+    </div>
+    <div class="shortcode_section_2">
+      <div class="shortcode_right"><img src="/assets/Front-office/images/img-4.png"></div>
+    </div>
+
+  </div>
+</div>
+<!-- shortcode section end -->

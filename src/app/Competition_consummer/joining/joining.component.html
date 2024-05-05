@@ -1,0 +1,14 @@
+    <!-- dancer section start -->
+    <div class="dancer_section layout_padding">
+      <div class="container">
+        <h1 class="ballet_text">Join Competition</h1>
+        <p class="amet_text">Face-To-Face</p>
+        <div class="click_bt" (click)="save($event)"><a href="#">Face-to-face</a></div>
+        <p *ngIf="participantJoined" class="success-message">Participant joined the competition successfully</p>
+        <p *ngIf="joinErrorMessage" class="error-message">{{joinErrorMessage}}</p>
+        <p class="amet_text_1">From a distance</p>
+        <div class="click_bt"><a href="/DanceScape/joinFromADistance">From a distance</a></div>
+          <p class="amet_text_1">.</p>
+      </div>
+    </div>
+    <!-- dancer section end -->

@@ -1,0 +1,94 @@
+
+    <div class="container">
+      <h1 class="ballet_text">Upload Video</h1>
+
+      <div class="card video-upload-card">
+        <div class="card-body">
+
+          <div class="file-input-container d-flex justify-content-between align-items-center mb-3">
+            <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="video/*" style="display: none;">
+            <button type="button" class="btn btn-primary" (click)="triggerFileInput()">
+              <i class="fas fa-cloud-upload-alt"></i> Choose File
+            </button>
+            <button type="button" class="btn btn-success" (click)="uploadVideo()">Upload</button>
+          </div>
+
+          <div *ngIf="uploadedVideoUrl" class="uploaded-video-info d-flex align-items-center mb-3">
+            <button type="button" class="btn btn-secondary"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Copy URL" (click)="copyToClipboard(uploadedVideoUrl)">
+              <i class="fas fa-clipboard"></i>
+            </button>
+          </div>
+
+
+          <div *ngIf="uploading" class="progress mb-3">
+            <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">
+              {{ progress }}%
+            </div>
+          </div>
+
+          <div class="video-container mb-3" *ngIf="selectedFile">
+            <video controls id="videoPlayer" [src]="selectedFileUrl" class="card-img-top video-preview">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+<br>
+
+  <style>
+  .video-upload-card {
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+  }
+
+  .btn-primary, .btn-success, .btn-secondary {
+    margin-right: 10px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+
+  .progress {
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    background-color: #007bff;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+  }
+
+  .video-preview {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+
+</style>

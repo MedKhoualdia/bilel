@@ -1,0 +1,33 @@
+<div class="Students_section layout_padding">
+  <div class="container-fluid">
+      <div class="container">
+          <form [formGroup]="FeedFormGroup" (ngSubmit)="onAdd()" style="padding-bottom: 5%;">
+              <div class="form-group">
+                  <div class="form-group">
+                      <label for="likee">Did you Like the evaluation ?</label>
+                      <select class="form-control" id="likee" formControlName="likee" (change)="onLikeChange($event)">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+              </div>
+              <div class="form-group">
+                <label for="rate">Rate:</label>
+                <div class="rating">
+                  <span class="star" (click)="setRate(5)">☆</span>
+                  <span class="star" (click)="setRate(4)">☆</span>
+                  <span class="star" (click)="setRate(3)">☆</span>
+                  <span class="star" (click)="setRate(2)">☆</span>
+                  <span class="star" (click)="setRate(1)">☆</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" formControlName="description"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+      </div>
+  </div>
+</div>

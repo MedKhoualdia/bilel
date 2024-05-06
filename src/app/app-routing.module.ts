@@ -53,6 +53,10 @@ import {AddDanceVenueComponent} from "./_DanceVenue_consummer/add-dance-venue/ad
 import {ListDanceVenueComponent} from "./_DanceVenue_consummer/list-dance-venue/list-dance-venue.component";
 import {UpdateDanceVenueComponent} from "./_DanceVenue_consummer/update-dance-venue/update-dance-venue.component";
 import {PaymentComponent} from "./payment-component/payment-component.component";
+import { UserscoreComponent } from './userscore/userscore.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { EvaluationadminComponent } from './evaluationadmin/evaluationadmin.component';
+import { StaticCompetionComponent } from './static-competion/static-competion.component';
 
 const routes: Routes = [
   { path:'DanceScape', component:AllTemplateComponent,
@@ -85,7 +89,9 @@ const routes: Routes = [
     {path: 'shortcode', component:ShortCodeComponent},
     {path: 'contact', component:ContactComponent},
     { path: 'profile', component: ProfileComponent },
-    { path: 'OnlinePayment', component: PaymentComponent }
+    { path: 'OnlinePayment', component: PaymentComponent },
+    {path: 'score', component:UserscoreComponent},
+    {path: 'feedback/:id1/:id2/:id3', component:FeedbackComponent},
   ]
 },
 
@@ -104,7 +110,9 @@ children:[
   {path:'addDanceVenue', component:AddDanceVenueComponent},
   {path:'listDanceVenue', component:ListDanceVenueComponent},
   {path:'updateDanceVenue/:id', component:UpdateDanceVenueComponent},
-  {path:'admin/listCompetition/:danceVenueId', component:ListCompetitionComponent}
+  {path:'admin/listCompetition/:danceVenueId', component:ListCompetitionComponent},
+  {path:'staticCompetion', component:StaticCompetionComponent},
+  {path:'evaluation', component:EvaluationadminComponent}
 ]
 },
 

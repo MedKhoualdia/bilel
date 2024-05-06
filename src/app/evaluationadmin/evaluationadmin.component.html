@@ -1,0 +1,135 @@
+<!-- your-component.html -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div *ngFor="let evaluation of Evaluations" class="col-md-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center;">Evaluation Date: {{ evaluation.evaluationDate | date}}</h5>
+          <p class="card-text">Judge: {{ evaluation.judge.firstName }} {{ evaluation.judge.lastName }}</p>
+          <p class="card-text">Competition: {{ evaluation.competition.name }}</p>
+          <p class="card-text">Competition Rules: {{ evaluation.competition.rules }}</p>
+          <div style="text-align: center;">
+              <button class="btn bg-danger" (click)="deleteevaluation(evaluation.id)" style="color: aliceblue;">Delete evaluation</button>
+          </div>
+
+          <h6 class="card-subtitle mb-3 mt-4">Scores:</h6>
+          <ul class="list-group">
+            <li *ngFor="let score of evaluation.scores" class="list-group-item">
+              <span class="badge bg-primary" *ngIf="score.winner" style="color: aliceblue; text-align: center;">Winner</span>
+              <span class="badge bg-secondary" *ngIf="!score.winner" style="color: aliceblue; text-align: center;">{{ score.rank }}</span>
+              <p class="participant-name mb-0" style="padding-left: 450px;">Participant: {{ score.participant.firstName }} {{ score.participant.lastName }}</p>
+              <p class="participant-name mb-0"style="padding-left: 450px;">Score: {{ score.score }} </p>
+              <ul class="list-unstyled">
+                <li>Artistry: {{ score.criterion.artistry }}</li>
+                <li>Technique: {{ score.criterion.technique }}</li>
+                <li>Choreography: {{ score.criterion.choreography }}</li>
+                <li>Expression And Emotion: {{ score.criterion.expressionAndEmotion }}</li>
+                <li>Performance Quality: {{ score.criterion.performanceQuality }}</li>
+                <li>Stage Presence: {{ score.criterion.stagePresence }}</li>
+                <li>Synchro And Precision: {{ score.criterion.synchroAndPrecision }}</li>
+                <div style="text-align: center;">
+                  <button class="btn bg-danger" (click)="deltescore(score.id)" style="color: aliceblue;">Delete Score</button> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                  <button class="btn bg-success" (click)="open(score.criterion,score.id)" style="color: aliceblue;">Edit Score and criterion</button>
+              </div>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="Evaluations.length === 0" class="text-center mt-5">
+    <p class="lead">Il n'y a pas d'évaluation</p>
+  </div>
+</div>
+<div class="signin-popup" *ngIf="openform==true">
+  <div class="signin-popup-content">
+      <a class="closedialog" (click)="closeform()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+        <form [formGroup]="Formm">
+          <div class="row mb-3">
+              <label for="inputArtistry" class="col-sm-2 col-form-label">Artistry</label>
+              <div class="col-sm-10">
+                <select id="inputArtistry" class="form-select" formControlName="artistry">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputArtistry" class="col-sm-2 col-form-label">Technique</label>
+              <div class="col-sm-10">
+                <select id="inputtechnique" class="form-select" formControlName="technique">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputArtistry" class="col-sm-2 col-form-label">Choreography</label>
+              <div class="col-sm-10">
+                <select id="inputchoreography" class="form-select" formControlName="choreography">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputArtistry" class="col-sm-2 col-form-label">Expression And Emotion</label>
+              <div class="col-sm-10">
+                <select id="inputexpressionAndEmotion" class="form-select" formControlName="expressionAndEmotion">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputArtistry" class="col-sm-2 col-form-label">Performance Quality</label>
+              <div class="col-sm-10">
+                <select id="inputperformanceQuality" class="form-select" formControlName="performanceQuality">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputArtistry" class="col-sm-2 col-form-label">stage Presence</label>
+              <div class="col-sm-10">
+                <select id="inputstagePresence" class="form-select" formControlName="stagePresence">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputArtistry" class="col-sm-2 col-form-label">Synchro And Precision</label>
+              <div class="col-sm-10">
+                <select id="inputsynchroAndPrecision" class="form-select" formControlName="synchroAndPrecision">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+
+          <div class="text-center">
+          <button type="submit" class="btn btn-primary" (click) = submit()>Modifer</button>
+          </div>
+      </form>
+  </div>
+</div>

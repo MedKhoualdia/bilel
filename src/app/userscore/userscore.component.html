@@ -1,0 +1,66 @@
+<div class="Students_section layout_padding">
+  <div class="container-fluid">
+      <div *ngFor="let evaluation of data" class="container">
+          <div *ngFor="let score of evaluation.scores">
+              <div *ngIf="score.participant.userId == u.userId" class="score-card">
+                  <div class="score-info row">
+                      <div class="col-6">
+                          <p class="date">Date: {{evaluation.evaluationDate | date}}</p>
+                          <p class="rank">Rank: {{score.rank}}</p>
+                          <p class="rank">score: {{score.score}}</p>
+                          <p class="winner">Winner: {{score.winner ? 'Yes' : 'No'}}</p>
+                          <p class="winner" *ngIf="score.avisScore!=null">Your feedBack Description: {{score.avisScore.description}}</p>
+                          <p class="winner" *ngIf="score.avisScore!=null">Your feedBack rate: {{score.avisScore.rate}}</p>
+                         </div>
+                          <div class="col-6" style="padding-top: 5%; padding-left: 20%;" *ngIf="score.avisScore==null">
+                              <button class="btn btn-secondary" (click)="feedback(evaluation.id,score.id)">FeedBack</button>
+                          </div>
+                  </div>
+                  <div class="criterion-info">
+                      <table class="criteria-table">
+                          <tr>
+                              <th>Criterion</th>
+                              <th>Score</th>
+                          </tr>
+                          <tr>
+                              <td>Artistry</td>
+                              <td>{{score.criterion.artistry}}</td>
+                          </tr>
+                          <tr>
+                              <td>Technique</td>
+                              <td>{{score.criterion.technique}}</td>
+                          </tr>
+                          <tr>
+                              <td>Choreography</td>
+                              <td>{{score.criterion.choreography}}</td>
+                          </tr>
+                          <tr>
+                              <td>Expression And Emotion</td>
+                              <td>{{score.criterion.expressionAndEmotion}}</td>
+                          </tr>
+                          <tr>
+                              <td>Performance Quality</td>
+                              <td>{{score.criterion.performanceQuality}}</td>
+                          </tr>
+                          <tr>
+                              <td>Stage Presence</td>
+                              <td>{{score.criterion.stagePresence}}</td>
+                          </tr>
+                          <tr>
+                              <td>Synchro And Precision</td>
+                              <td>{{score.criterion.synchroAndPrecision}}</td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<ng-template #secondDialog >
+  <div class="popup">
+    <div class="popup-content" >
+      <h2 matDialogTitle style="color: #007bff; font-size: 24px;">{{ message }} </h2>
+    </div>
+  </div>
+</ng-template>

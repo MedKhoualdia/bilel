@@ -100,6 +100,10 @@ import {AffectationComponent} from "./_Competition_consummer/affectation/affecta
 import {NgxPaginationModule} from "ngx-pagination";
 import {PaymentComponent} from './payment-component/payment-component.component';
 import {CloudinaryModule} from "@cloudinary/ng";
+import { EvaluationadminComponent } from './evaluationadmin/evaluationadmin.component';
+import { StaticCompetionComponent } from './static-competion/static-competion.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { UserscoreComponent } from './userscore/userscore.component';
 
 @NgModule({
   declarations: [
@@ -180,6 +184,10 @@ import {CloudinaryModule} from "@cloudinary/ng";
     LiveStreamComponent,
     WithTeamComponent,
     AffectationComponent,
+    EvaluationadminComponent,
+    StaticCompetionComponent,
+    FeedbackComponent,
+    UserscoreComponent,
 
 
   ],

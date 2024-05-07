@@ -1,0 +1,14 @@
+<!-- course.component.html -->
+<section id="courses">
+    <h2>Cours de Danse</h2>
+    <!-- Utiliser une icône de Google Material Icons -->
+    <div *ngFor="let course of courses" class="course-card" (click)="redirectToCourseDetails()">
+        <i class="material-icons w3-margin-right w3-padding">library_books</i>
+        <div class="course-details">
+            <h3>{{ course.name }}</h3>
+            <p>Instructeur: {{ course.instructor }}</p>
+            <p>Horaire: {{ course.schedule }}</p>
+            <p>{{ course.contenu }}</p>
+        </div>
+    </div>
+</section>

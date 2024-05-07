@@ -1,0 +1,33 @@
+<p>liststyle works!</p>
+<p>liststyle works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let style of danceStyles">
+            <td>{{ style.id }}</td>
+            <td>{{ style.name }}</td>
+            
+            <td>
+                <button (click)="deleteDanceStyle(style.id)">Supprimer</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="!danceStyles || danceStyles.length === 0">
+    <p>Aucun style de danse trouvé.</p>
+</div>
+
+<div>
+    <button routerLink="/admin/addstyle">Ajouter un style de danse</button>
+</div>
+<div>
+    <button routerLink="/admin/studyadmin">RETURN</button>
+  </div>

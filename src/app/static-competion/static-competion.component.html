@@ -1,4 +1,3 @@
-<!--
 <div class="container-fluid">
   <div class="row">
     <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;" *ngFor="let item of Competitions">
@@ -10,13 +9,13 @@
       </div>
       <div class="card-body">
         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ item.rules }}</div>
-        <div *ngFor="let item2 of item.user">
+        <div *ngFor="let item2 of users">
           <p>{{ item2.firstName }}&nbsp;&nbsp;{{ item2.lastName }}</p>
         </div>
 
-        <div *ngIf="item.user.length === 0">
+        <!-- <div *ngIf="item.user.length === 0">
           <span>This competition does not have participants yet</span>
-        </div>
+        </div> -->
         <div>
           <a (click)="downloadExcel(item)" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
               class="fas fa-download fa-sm text-white-50"></i>Telecharger</a>
@@ -41,4 +40,3 @@
     </div>
   </ng-template>
 </div>
--->

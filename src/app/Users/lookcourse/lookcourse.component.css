@@ -1,0 +1,58 @@
+/* course.component.css */
+
+/* Styles CSS */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+section {
+    padding: 20px;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+/* Style pour les icônes de Google Material Icons */
+.material-icons {
+    font-size: 24px;
+    vertical-align: middle;
+}
+/* Style pour les cartes des cours de danse */
+.course-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.course-details {
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 70%;
+}
+.course-details h3 {
+    margin-top: 0;
+}
+.course-details p {
+    margin: 5px 0;
+}

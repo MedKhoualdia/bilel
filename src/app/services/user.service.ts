@@ -22,6 +22,10 @@ private url = 'http://localhost:8088'
     return this.http.get<User>(`${this.url}/admin/getUserById/${userId}`)
   }
 
+  getByCompetitionId(compId:number):Observable<User[]>{
+    return this.http.get<User[]>(`${this.url}/admin/getUsersByComp/${compId}`)
+  }
+
   deletUser(userId:number):Observable<void>{
 
     return this.http.delete<void>(`${this.url}/admin/deleteUser/${userId}`);

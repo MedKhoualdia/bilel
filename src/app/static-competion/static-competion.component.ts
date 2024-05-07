@@ -1,8 +1,12 @@
+import { Observable } from 'rxjs';
 import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
 import { EvaluationSerivceService } from '../services/evaluation-serivce.service';
 import { ToastrService } from 'ngx-toastr';
 import { Competition } from '../_model/Competition';
 import {MatDialog} from '@angular/material/dialog';
+import { User } from '../models/User.model';
+import { UserService } from '../services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-static-competion',
@@ -11,8 +15,10 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class StaticCompetionComponent {
 
-  constructor(private service: EvaluationSerivceService,private toastr: ToastrService,private dialogRef : MatDialog) {
+  constructor(private act: ActivatedRoute, private service: EvaluationSerivceService,private toastr: ToastrService,private dialogRef : MatDialog, private userService : UserService) {
   }
+  id:any;
+  users!: User[];
   Competitions!: Competition[];
   message: string = '';
   @ViewChild('secondDialog', {static: true}) secondDialog!: TemplateRef<any>;
@@ -24,8 +30,14 @@ export class StaticCompetionComponent {
     this.service.getAllCompetition().subscribe(data => {
       // ts-@ignore
       this.Competitions = data;
+      this.id=this.act.snapshot.params['id'];
+
 
     });
+
+    this.userService.getByCompetitionId(this.id).subscribe(data => {
+      this.users = data;
+    })
   }
 
   downloadExcel(c: Competition) {
@@ -58,7 +70,7 @@ export class StaticCompetionComponent {
 
   onFileChange(event: any) {
     const file = event.target.files[0];
-    this.service.importExcel( this.idd, "Judge", "Judge", file).subscribe(
+    this.service.importExcel( this.idd, "admin", "admin", file).subscribe(
       (response: any) => {
         this.message = 'Excel file imported successfully!';
         this.dialogRef.open(this.secondDialog);

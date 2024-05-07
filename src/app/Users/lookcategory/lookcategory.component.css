@@ -1,0 +1,28 @@
+/* Style pour le cadre des catégories */
+/* Style pour le cadre des catégories */
+.category-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 300px; /* Largeur du cadre */
+    max-height: 200px; /* Hauteur maximale du cadre */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+  }
+  
+  
+  /* Style pour les éléments de la liste */
+  .category-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .category-list li {
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  
+  .category-list li:hover {
+    background-color: #f0f0f0;
+  }
+  

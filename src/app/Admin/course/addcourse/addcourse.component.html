@@ -1,0 +1,37 @@
+<p>addcourse works!</p>
+<h2>Ajouter un cours</h2>
+
+
+<h2>Ajouter un cours</h2>
+
+<form (submit)="addCourse()">
+  <div>
+    <label for="schedule">contenu:</label>
+    <input type="text" id="schedule" name="schedule" [(ngModel)]="newCourse.contenu" required>
+  </div>
+  <div>
+    <label for="name">Nom du cours:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newCourse.name" required>
+  </div>
+  <div>
+    <label for="instructor">Instructeur:</label>
+    <input type="text" id="instructor" name="instructor" [(ngModel)]="newCourse.instructor" required>
+  </div>
+  <div>
+    <label for="schedule">Horaire:</label>
+    <input type="text" id="schedule" name="schedule" [(ngModel)]="newCourse.schedule" required>
+  </div>
+  
+  <!-- Ajoutez ici le champ pour la sélection de l'école de danse -->
+  <div>
+    <label for="danceSchool">École de danse:</label>
+    <!-- Remplacez 'null' par la valeur appropriée pour le contrôle de sélection -->
+    <select id="danceSchool" name="danceSchool" [(ngModel)]="newCourse.danceSchool.id" required>
+      <option *ngFor="let school of danceSchools" [value]="school.id">{{ school.name }}</option>
+    </select>
+  </div>
+  <button type="submit">Ajouter</button>
+</form>
+
+
+<a routerLink="/admin/listcourse">Retour à la liste</a>

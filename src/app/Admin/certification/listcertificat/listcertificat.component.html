@@ -1,0 +1,33 @@
+<p>listcertificat works!</p>
+<p>listcourse works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>isCertified</th>
+            <th>operation</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let certification of certifications">
+            <td>{{ certification.id }}</td>
+            <td>{{ certification.name }}</td>
+            <td>{{ certification.isCertified }}</td>
+            <td>
+                <button (click)="deleteCertification(certification.id)">Supprimer</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="!certifications || certifications.length === 0">
+    <p>Aucune certification trouvée.</p>
+</div>
+<div>
+    <button routerLink="/admin/addcertification">Ajouter une certification</button>
+</div>
+<div>
+    <button routerLink="/admin/studyadmin">RETURN</button>
+  </div>

@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Liste des catégories de danse</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Cours</th>
+          <th>Styles de danse</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.id }}</td>
+          <td>{{ category.name ? category.name : 'N/A' }}</td>
+          <td>{{ category.course.name ? category.course.name : 'N/A' }}</td>
+          <td>
+            <span *ngFor="let style of category.danceStyles">{{ style.name }}</span>
+          </td>
+          <td>
+            <button (click)="deleteCategory(category.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!categories || categories.length === 0">
+      <p>Aucune catégorie de danse trouvée.</p>
+    </div>
+  
+    <div>
+      <button routerLink="/admin/addcategory">Ajouter une catégorie de danse</button>
+    </div>
+  </div>
+  <div>
+    <button routerLink="/admin/studyadmin">RETURN</button>
+  </div>

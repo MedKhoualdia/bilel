@@ -104,6 +104,33 @@ import { EvaluationadminComponent } from './evaluationadmin/evaluationadmin.comp
 import { StaticCompetionComponent } from './static-competion/static-competion.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { UserscoreComponent } from './userscore/userscore.component';
+import { RouterModule } from '@angular/router';
+import { ListdanceComponent } from './Admin/danceschool/listdance/listdance.component';
+import { AddschoolComponent } from './Admin/danceschool/addschool/addschool.component';
+import { DeleteschoolComponent } from './Admin/danceschool/deleteschool/deleteschool.component';
+import { ListcourseComponent } from './Admin/course/listcourse/listcourse.component';
+import { AddcourseComponent } from './Admin/course/addcourse/addcourse.component';
+import { DeletecourseComponent } from './Admin/course/deletecourse/deletecourse.component';
+import { ListcategoryComponent } from './Admin/dancecategory/listcategory/listcategory.component';
+import { AddcategoryComponent } from './Admin/dancecategory/addcategory/addcategory.component';
+import { DeletecategoryComponent } from './Admin/dancecategory/deletecategory/deletecategory.component';
+import { ListstyleComponent } from './Admin/dancestyle/liststyle/liststyle.component';
+import { AddstyleComponent } from './Admin/dancestyle/addstyle/addstyle.component';
+import { DeletestyleComponent } from './Admin/dancestyle/deletestyle/deletestyle.component';
+import { ListcertificatComponent } from './Admin/certification/listcertificat/listcertificat.component';
+import { AddcertificationComponent } from './Admin/certification/addcertification/addcertification.component';
+import { StudyadminComponent } from './Admin/studyadmin/studyadmin.component';
+import { HomestudyComponent } from './Users/homestudy/homestudy.component';
+import { LookdanceComponent } from './Users/lookdance/lookdance.component';
+import { LookcourseComponent } from './Users/lookcourse/lookcourse.component';
+import { LookstyleComponent } from './Users/lookstyle/lookstyle.component';
+import { LookcategoryComponent } from './Users/lookcategory/lookcategory.component';
+import { CoursDeDanseComponent } from './Users/cours-de-danse/cours-de-danse.component';
+import { QuizComponent } from './Users/quiz/quiz.component';
+import { ObceComponent } from './Users/obce/obce.component';
+import { CommentaireComponent } from './Users/commentaire/commentaire.component';
+
+
 
 @NgModule({
   declarations: [
@@ -188,6 +215,30 @@ import { UserscoreComponent } from './userscore/userscore.component';
     StaticCompetionComponent,
     FeedbackComponent,
     UserscoreComponent,
+    ListdanceComponent,
+    AddschoolComponent,
+    DeleteschoolComponent,
+    ListcourseComponent,
+    AddcourseComponent,
+    DeletecourseComponent,
+    ListcategoryComponent,
+    AddcategoryComponent,
+    DeletecategoryComponent,
+    ListstyleComponent,
+    AddstyleComponent,
+    DeletestyleComponent,
+    ListcertificatComponent,
+    AddcertificationComponent,
+    StudyadminComponent,
+    HomestudyComponent,
+    LookdanceComponent,
+    LookcourseComponent,
+    LookcategoryComponent,
+    LookstyleComponent,
+    CoursDeDanseComponent,
+    QuizComponent,
+    ObceComponent,
+    CommentaireComponent,
 
 
   ],

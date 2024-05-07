@@ -1,0 +1,17 @@
+<p>addstyle works!</p>
+<p>addstyle works!</p>
+
+<div>
+  <label for="name">Nom du style de danse:</label>
+  <input type="text" id="name" [(ngModel)]="newDanceStyle.name" name="name">
+</div>
+
+<button (click)="addDanceStyle()">Ajouter le style de danse</button>
+
+<div *ngIf="danceStyles.length > 0">
+  <h3>Liste des styles de danse ajoutés:</h3>
+  <ul>
+    <li *ngFor="let style of danceStyles">{{ style.name }}</li>
+  </ul>
+</div>
+<a routerLink="/admin/liststyle">Retour à la liste</a>

@@ -1,0 +1,18 @@
+<p>addcertification works!</p>
+<div class="container">
+    <h2>Ajouter une nouvelle certification</h2>
+    <form (ngSubmit)="addCertification()">
+      <div class="form-group">
+        <label for="name">Nom de la certification:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newCertification.name" required>
+      </div>
+      <div class="form-group">
+        <label for="isCertified">Certifié:</label>
+        <input type="checkbox" class="form-check-input" id="isCertified" name="isCertified" [(ngModel)]="newCertification.isCertified">
+      </div>
+      <!-- Vous pouvez ajouter d'autres champs ici si nécessaire -->
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+  <a routerLink="/admin/listcertification">Retour à la liste</a>
+  

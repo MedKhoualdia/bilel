@@ -1,0 +1,20 @@
+<h2>Ajouter une école de danse</h2>
+
+<form (submit)="addSchool()">
+  <div>
+    <label for="name">Nom:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newSchool.name" required>
+  </div>
+  <div>
+    <label for="position">Position:</label>
+    <input type="text" id="position" name="position" [(ngModel)]="newSchool.position" required>
+  </div>
+  <div>
+    <label for="horaire">Horaire:</label>
+    <input type="text" id="horaire" name="horaire" [(ngModel)]="newSchool.horaire" required>
+  </div>
+  <button type="submit">Ajouter</button>
+</form>
+
+<!-- Lien de redirection vers la liste des écoles de danse -->
+<a routerLink="/admin/listdance">Retour à la liste des écoles de danse</a>

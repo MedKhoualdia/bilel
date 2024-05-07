@@ -1,0 +1,34 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Instructeur</th>
+        <th>Horaire</th>
+        <th>Contenu</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.id }}</td>
+        <td>{{ course.name }}</td>
+        <td>{{ course.instructor }}</td>
+        <td>{{ course.schedule }}</td>
+        <td>{{ course.contenu }}</td>
+        <td>
+          <button (click)="deleteCourse(course.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div *ngIf="!courses || courses.length === 0">
+    <p>Aucun cours trouvé.</p>
+  </div>
+  <div>
+    <button routerLink="/admin/addcourse">Ajouter un cours</button>
+  </div>
+  <div>
+    <button routerLink="/admin/studyadmin">RETURN</button>
+  </div>

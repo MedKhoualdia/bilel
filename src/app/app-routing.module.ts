@@ -57,6 +57,30 @@ import { UserscoreComponent } from './userscore/userscore.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { EvaluationadminComponent } from './evaluationadmin/evaluationadmin.component';
 import { StaticCompetionComponent } from './static-competion/static-competion.component';
+import { ListdanceComponent } from './Admin/danceschool/listdance/listdance.component';
+import { ListcourseComponent } from './Admin/course/listcourse/listcourse.component';
+import { ListcategoryComponent } from './Admin/dancecategory/listcategory/listcategory.component';
+import { ListstyleComponent } from './Admin/dancestyle/liststyle/liststyle.component';
+import { ListcertificatComponent } from './Admin/certification/listcertificat/listcertificat.component';
+import { AddschoolComponent } from './Admin/danceschool/addschool/addschool.component';
+import { AddcourseComponent } from './Admin/course/addcourse/addcourse.component';
+import { AddcategoryComponent } from './Admin/dancecategory/addcategory/addcategory.component';
+import { AddstyleComponent } from './Admin/dancestyle/addstyle/addstyle.component';
+import { DeletestyleComponent } from './Admin/dancestyle/deletestyle/deletestyle.component';
+import { DeletecategoryComponent } from './Admin/dancecategory/deletecategory/deletecategory.component';
+import { StudyadminComponent } from './Admin/studyadmin/studyadmin.component';
+import { DeleteschoolComponent } from './Admin/danceschool/deleteschool/deleteschool.component';
+import { AddcertificationComponent } from './Admin/certification/addcertification/addcertification.component';
+import { DeletecourseComponent } from './Admin/course/deletecourse/deletecourse.component';
+import { HomestudyComponent } from './Users/homestudy/homestudy.component';
+import { LookdanceComponent } from './Users/lookdance/lookdance.component';
+import { LookcourseComponent } from './Users/lookcourse/lookcourse.component';
+import { LookstyleComponent } from './Users/lookstyle/lookstyle.component';
+import { LookcategoryComponent } from './Users/lookcategory/lookcategory.component';
+import { CoursDeDanseComponent } from './Users/cours-de-danse/cours-de-danse.component';
+import { QuizComponent } from './Users/quiz/quiz.component';
+import { ObceComponent } from './Users/obce/obce.component';
+import { CommentaireComponent } from './Users/commentaire/commentaire.component';
 
 const routes: Routes = [
   { path:'DanceScape', component:AllTemplateComponent,
@@ -92,6 +116,16 @@ const routes: Routes = [
     { path: 'OnlinePayment', component: PaymentComponent },
     {path: 'score', component:UserscoreComponent},
     {path: 'feedback/:id1/:id2/:id3', component:FeedbackComponent},
+    { path: 'studyadmin', component: StudyadminComponent },
+    { path: 'homestudy', component: HomestudyComponent },
+    { path: 'lookdance', component: LookdanceComponent },
+    { path: 'lookcourse', component: LookcourseComponent },
+    { path: 'lookcategory', component: LookcategoryComponent},
+    { path: 'lookstyle', component: LookstyleComponent},
+    { path: 'voircours', component: CoursDeDanseComponent},
+    { path: 'quiz', component: QuizComponent},
+    { path: 'obce', component: ObceComponent},
+    { path: 'comment', component: CommentaireComponent},
   ]
 },
 
@@ -111,8 +145,23 @@ children:[
   {path:'listDanceVenue', component:ListDanceVenueComponent},
   {path:'updateDanceVenue/:id', component:UpdateDanceVenueComponent},
   {path:'admin/listCompetition/:danceVenueId', component:ListCompetitionComponent},
-  {path:'staticCompetion', component:StaticCompetionComponent},
-  {path:'evaluation', component:EvaluationadminComponent}
+  {path:'showw/:id', component:StaticCompetionComponent},
+  {path:'evaluation', component:EvaluationadminComponent},
+  { path: 'listdance', component: ListdanceComponent },
+  { path: 'listcourse', component: ListcourseComponent },
+  { path: 'listcategory', component: ListcategoryComponent},
+  { path: 'liststyle', component: ListstyleComponent},
+  { path: 'listcertification', component: ListcertificatComponent},
+  { path: 'addschool', component: AddschoolComponent },
+  { path: 'addcourse', component: AddcourseComponent },
+  { path: 'addcategory', component: AddcategoryComponent },
+  { path: 'addstyle', component: AddstyleComponent },
+  { path: 'addcertification', component: AddcertificationComponent },
+  { path: 'deleteschool', component: DeleteschoolComponent },
+  { path: 'deletecourse', component: DeletecourseComponent },
+  { path: 'deletecategory', component: DeletecategoryComponent },
+  { path: 'deletestyle', component: DeletestyleComponent },
+  { path: 'studyadmin', component: StudyadminComponent },
 ]
 },
 

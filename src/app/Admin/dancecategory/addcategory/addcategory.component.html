@@ -1,0 +1,14 @@
+<p>addcategory works!</p>
+<!-- addcategory.component.html -->
+
+<h2>Ajouter une nouvelle catégorie</h2>
+
+<form (submit)="addCategory()">
+  <div>
+    <label for="name">Nom de la catégorie:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newCategoryName" required>
+  </div>
+  <!-- Vous pouvez ajouter d'autres champs ici si nécessaire -->
+  <button type="submit">Ajouter</button>
+</form>
+<a routerLink="/admin/listcategory">Retour à la liste</a>

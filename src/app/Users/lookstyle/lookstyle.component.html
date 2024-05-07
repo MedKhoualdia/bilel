@@ -1,0 +1,9 @@
+<div class="style-container">
+    <h2>Styles de danse</h2>
+    <ul class="style-list">
+        <li *ngFor="let style of danceStyles" (click)="selectStyle(style)">
+            {{ style.name }}
+        </li>
+    </ul>
+</div>
+

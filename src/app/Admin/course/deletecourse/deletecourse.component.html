@@ -1,0 +1,6 @@
+<p>deletecourse works!</p>
+<form (ngSubmit)="deleteCourse()">
+    <label for="id">Entrez l'ID du cours à supprimer:</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" required />
+    <button type="submit">Supprimer</button>
+  </form>

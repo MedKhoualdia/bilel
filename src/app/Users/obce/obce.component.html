@@ -1,0 +1,15 @@
+<p>voici votre certification!</p>
+<div>
+    <label for="firstName">Prénom :</label>
+    <input type="text" id="firstName" [(ngModel)]="firstName">
+  </div>
+  <div>
+    <label for="lastName">Nom :</label>
+    <input type="text" id="lastName" [(ngModel)]="lastName">
+  </div>
+  <div>
+    <label for="id">Identifiant :</label>
+    <input type="text" id="id" [(ngModel)]="id">
+  </div>
+  <button (click)="generateCertificate()">Générer Certificat</button>
+  

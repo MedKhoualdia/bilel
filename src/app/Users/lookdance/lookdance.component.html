@@ -1,0 +1,63 @@
+<!-- school.component.html -->
+<header>
+    <h1>École de Danse</h1>
+    <p>La passion de la danse.</p>
+</header>
+<nav>
+    <div>
+        <button routerLink="/DanceScape/lookdance">DanceSchool</button>
+    </div>
+</nav>
+<section id="about">
+    <h2>À Propos de Nous</h2>
+    <p>Bienvenue à notre école de danse. Nous offrons une variété de cours de danse pour tous les âges et niveaux.</p>
+    <p>Nos instructeurs professionnels vous aideront à atteindre vos objectifs de danse et à développer vos compétences.</p>
+</section>
+<section id="dance-schools">
+    <h2>Écoles de Danse</h2>
+    <div *ngFor="let danceSchool of danceSchools" class="dance-school-card">
+        <i class="material-icons w3-margin-right w3-padding">home</i>
+        <div class="dance-school-details">
+            <h3>{{ danceSchool.name }}</h3>
+            <p>{{ danceSchool.position }}</p>
+            <p>{{ danceSchool.horaire }}</p>
+        </div>
+        <div>
+            <button routerLink="/DanceScape/lookcategory">go</button>
+        </div>
+
+        
+    </div>
+</section>
+<h2>Commenter</h2>
+<div class="comment-container">
+    <!-- Formulaire d'ajout de commentaire -->
+    <form (submit)="addComment()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="newComment.username" required>
+      </div>
+      <div class="form-group">
+        <label for="contenu">Contenu:</label>
+        <textarea id="contenu" name="contenu" [(ngModel)]="newComment.contenu" required></textarea>
+      </div>
+      <button type="submit">Ajouter</button>
+    </form>
+  
+    <!-- Affichage des commentaires -->
+    <div class="comment" *ngFor="let comment of comments">
+      <p><strong>{{ comment.username }} :</strong> {{ comment.contenu }}</p>
+    </div>
+  </div>
+  <!-- lookdance.component.html -->
+<div>
+    <canvas #commentChart></canvas>
+  </div>
+  
+<section id="events">
+    <h2>Événements</h2>
+    <p>Restez à l'écoute pour nos prochains spectacles et représentations.</p>
+</section>
+<footer>
+    <p>&copy; 2024 École de Danse. Tous droits réservés.</p>
+</footer>

@@ -1,0 +1,17 @@
+<h1>Quiz sur la Danse</h1>
+<h1>Voici les reponses possible:" "breakdance", "Cuba"true", "false", "Argentine"</h1>
+<form>
+  <div *ngFor="let question of questions; let i = index">
+    <label>{{ question }}</label>
+    <div>
+      <!-- Ajoutez l'attribut name pour chaque champ d'entrée -->
+      <input type="text" [(ngModel)]="userAnswers[i]" [name]="'answer_' + i" placeholder="Votre réponse...">
+    </div>
+  </div>
+</form>
+
+<button (click)="finishQuiz()">Terminé</button>
+
+<div *ngIf="score !== null">
+  <p>Votre score est: {{ score }}/5</p>
+</div>

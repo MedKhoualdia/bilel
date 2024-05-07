@@ -1,0 +1,8 @@
+<div class="category-container">
+    <h2>Selectionne ta Catégories de danse</h2>
+    <ul class="category-list">
+      <li *ngFor="let category of categories" (click)="selectCategory(category)">
+        {{ category.name }}
+      </li>
+    </ul>
+</div>
